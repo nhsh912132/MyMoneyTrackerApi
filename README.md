@@ -1,3 +1,4 @@
 # MyMoneyTrackerApi
 auto_function是在nas上進行排程執行的api
+
 functiong是網頁前端使用的api
