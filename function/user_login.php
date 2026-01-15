@@ -30,7 +30,7 @@
 			echo userCheckUnknowFail;
 		}else if($res == -3){
 			log_audit_action($db, 'Login', 'userTable','', -3,-2, 'user_login.php');
-			echo userBlockade;
+			echo pwError;
 		}else{
 			log_audit_action($db, 'Login', 'userTable','', $res['userId'],$res['userId'], 'user_login.php');
 
