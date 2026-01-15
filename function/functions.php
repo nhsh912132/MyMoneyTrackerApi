@@ -69,8 +69,9 @@
 		return $db;
 	}
 
-    function checkuserAccount($db,$userEmail,$userPwd){
-		$checkAccSQL = "SELECT * FROM `userTable` WHERE `email` = '$userEmail' AND `passwordHash` = PASSWORD('$userPwd')";
+   	function checkuserAccount($db,$userEmail,$userPwd){
+		// $checkAccSQL = "SELECT * FROM `userTable` WHERE `email` = '$userEmail' AND `passwordHash` = PASSWORD('$userPwd')";
+		$checkAccSQL = "SELECT * FROM `userTable` WHERE `email` = '$userEmail' ";
 		$checkAccRes = $db -> query($checkAccSQL);
 		$checkAccCount = $checkAccRes -> rowCount();
 
@@ -78,7 +79,13 @@
 			$checkAccRows = $checkAccRes -> fetchAll();
 			$checkAccRow = $checkAccRows[0];
 			// $checkAccCount = $checkAccRow['userId'];
-			return $checkAccRow;
+
+			$AccPw = $checkAccRow['passwordHash'];
+			if(password_verify($userPwd,$AccPw)){
+				return $checkAccRow;
+			}else{
+				return -3;
+			}
 		}
 		else if($checkAccCount > 1){
 			return -1;
