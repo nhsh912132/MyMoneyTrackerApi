@@ -23,6 +23,7 @@
 	define("userUnLogin", 1007);//未登入
 	define("userBlockade", 1008);//用戶遭封鎖
 	define("regiError", 1009);//用戶註冊錯誤
+	define("pwError",1010);//密碼錯誤
 	define("alreadyVerifyOldPhoneOK", 1111);//更換手機號時,已經經過驗證或是可以略過驗證
 	
 	//雜亂
